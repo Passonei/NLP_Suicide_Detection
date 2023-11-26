@@ -1,0 +1,15 @@
+{
+    "preprocessing": {
+        "procedure": [
+            "lower",
+            "remove_links",
+            "remove_punctuation",
+            "remove_numbers",
+            "translate_emoji",
+            "tokenize",
+            "remove_stopwords",
+            "lemmatize",
+            "remove_short_words"
+        ]
+    }
+}

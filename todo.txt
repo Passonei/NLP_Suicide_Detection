@@ -1,0 +1,14 @@
+ - keyword
+ - preprocessing
+ - config
+ - feature engineering (length, sentiment, keywords)
+ 
+- association on google cloud
+
+ tests:
+ - with/without feature (2**3)
+ - models (naive bayes ...)
+ - vectorization (tf-idf, bag of wors, word2vec?)
+
+train
+predict
