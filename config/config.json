@@ -1,15 +1,31 @@
 {
     "preprocessing": {
         "procedure": [
-            "lower",
-            "remove_links",
-            "remove_punctuation",
-            "remove_numbers",
-            "translate_emoji",
-            "tokenize",
-            "remove_stopwords",
-            "lemmatize",
-            "remove_short_words"
+            "lower", 
+            "remove_punctuation", 
+            "remove_links", 
+            "remove_numbers", 
+            "remove_emoji", 
+            "tokenize", 
+            "remove_stopwords", 
+            "shorten_text",
+            "remove_short_words", 
+            "stem" 
+        ],
+        "non_use_preprocessing": [
+            "lemmatize", 
+            "remove_long_words"     
+        ]
+
+    },
+    "feature_engineering": {
+        "procedure_before_preprocessing" : [
+            "get_length",
+            "get_exclamation_count"
+        ],
+        "procedure_after_preprocessing" : [
+            "get_sentiment",
+            "get_keyword"
         ]
     }
 }
