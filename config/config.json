@@ -5,18 +5,11 @@
             "remove_punctuation", 
             "remove_links", 
             "remove_numbers", 
-            "remove_emoji", 
+            "translate_emoji", 
             "tokenize", 
             "remove_stopwords", 
-            "shorten_text",
-            "remove_short_words", 
-            "stem" 
-        ],
-        "non_use_preprocessing": [
-            "lemmatize", 
-            "remove_long_words"     
+            "lemmatize"
         ]
-
     },
     "feature_engineering": {
         "procedure_before_preprocessing" : [

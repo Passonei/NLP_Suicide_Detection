@@ -3,14 +3,13 @@
  - preprocessing
  - config
  - feature engineering (length, sentiment, keywords)
+ - with/without feature
+ - models (naive bayes ...)
 
  TODO:
  
- tests:
- - with/without feature (2**3)
- - models (naive bayes ...)
  - vectorization (tf-idf, bag of wors, word2vec?)
- - only new features in input data
+ 
 
 - readme
 
