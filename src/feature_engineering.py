@@ -25,8 +25,13 @@ class FeatureCreator():
 
     def get_sentiment(self):
         sentiment = self.sid.polarity_scores(" ".join(self.text))
-        if 'help' in self.text or 'pleas' in self.text and sentiment['compound']>0:
-            sentiment['compound'] -= 0.3 
+        help_words = [
+        'help','suicide','plz', 'cyanide','ibuprofen','charcoal',
+        'euthanasia','survivor','please','unimportant', 'insulin',
+        'support', 'urgent', 'emergency']
+        
+        if any(word in (text) for word in help_words): 
+            sentiment['compound'] *= 0.5
         return [value for value in sentiment.values()]
     
     def fit_vectorizer(self, corpus):
