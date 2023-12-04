@@ -11,7 +11,7 @@ Classifiers tested: Naive Bayes, KNN, SVM, Random Forest, Logistic Regression. T
 
 Based on the experiments, an optimal pipeline was created:
 1. Preprocessing:
-- decrease of letters, 
+- lowercase, 
 - removal of punctuation marks, 
 - removal of links and numbers, 
 - converting emoji to text, 
@@ -25,8 +25,7 @@ Based on the experiments, an optimal pipeline was created:
 3. Classification.
 
 ###### Results
-The classifier achieves 94.19% accuracy on the test set.
-
+The classifier achieves 94.19% accuracy on the test set. Which is a higher score than those used on kaggle by other users of more advanced models like recurrent neural networks (RNNs).
                 precision   recall   f1-score  support
 
            0       0.94      0.95      0.94     23301
