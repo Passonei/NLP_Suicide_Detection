@@ -11,14 +11,9 @@
             "lemmatize"
         ]
     },
-    "feature_engineering": {
-        "procedure_before_preprocessing" : [
-            "get_length",
-            "get_exclamation_count"
-        ],
-        "procedure_after_preprocessing" : [
-            "get_sentiment",
-            "get_keyword"
-        ]
+    "models": {
+        "vectorizer": "models/tfidf_vectorizer.pkl",
+        "classifier": "models/clf_logistic_regression.pkl",
+        "pipeline": "models/pipe.pkl"
     }
 }

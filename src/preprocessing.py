@@ -17,13 +17,10 @@ class Preprocessor():
         self.max_length = max_length
         self.stop_words = set(stopwords.words('english'))
         self.stop_words.add('dont')
-        self.marks_to_remove = {'\u200d': None,
-                                '\n': None,
-                                '\t': None,
-                                '’': None}
         self.translator = str.maketrans('', '', string.punctuation)
-        self.translator.update(self.marks_to_remove)
         self.stop_words = set(stopwords.words('english'))
+        self.stop_words.add('’')
+        self.stop_words.add('\u200d')
         self.stemmer = PorterStemmer()
         self.lemmatizer = WordNetLemmatizer()
         if 'lemmatize' or 'stem' in procedure:
@@ -58,6 +55,9 @@ class Preprocessor():
 
     def lemmatize(self):
         return [self.lemmatizer.lemmatize(word) for word in self.text]
+    
+    def remove_singular_marks(self):
+        return [word for word in self.text if len(word) > 1]
 
     def remove_short_words(self):
         return [word for word in self.text if len(word) > 3]
@@ -68,8 +68,14 @@ class Preprocessor():
     def shorten_text(self):
         return self.text[:self.max_length]
 
-    def fit(self, text):
-        self.text = text
-        for procedure in self.procedure:
-            self.text = getattr(self, procedure)()
-        return self.text
+    def transform(self, texts):
+        preprocessed = []
+        for text in texts:
+            self.text = text
+            for procedure in self.procedure:
+                self.text = getattr(self, procedure)()
+            preprocessed.append(' '.join(self.text))
+        return preprocessed
+    
+    def fit(self, X, y=None):
+        return self
