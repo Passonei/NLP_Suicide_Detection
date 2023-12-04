@@ -26,6 +26,7 @@ Based on the experiments, an optimal pipeline was created:
 
 ###### Results
 The classifier achieves 94.19% accuracy on the test set. Which is a higher score than those used on kaggle by other users of more advanced models like recurrent neural networks (RNNs).
+
                 precision   recall   f1-score  support
 
            0       0.94      0.95      0.94     23301
