@@ -11,6 +11,10 @@ class Preprocessor():
     Preprocessor class to clean text data.
     """
     def __init__(self, procedure, max_length=200):
+        nltk.download('punkt')
+        nltk.download('vader_lexicon')
+        nltk.download('stopwords')
+        nltk.download('wordnet')
         self.procedure = procedure
         self.max_length = max_length
         self.translator = str.maketrans('', '', string.punctuation)
@@ -20,8 +24,6 @@ class Preprocessor():
         self.stop_words.add('\u200d')
         self.stemmer = PorterStemmer()
         self.lemmatizer = WordNetLemmatizer()
-        nltk.download('punkt')
-        nltk.download('vader_lexicon')
         
     def lower(self):
         return self.text.lower()
