@@ -1,4 +1,3 @@
-import pandas as pd
 import nltk
 import string
 import re
@@ -6,7 +5,6 @@ import emoji
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 
 class Preprocessor():
     """
@@ -15,16 +13,15 @@ class Preprocessor():
     def __init__(self, procedure, max_length=200):
         self.procedure = procedure
         self.max_length = max_length
-        self.stop_words = set(stopwords.words('english'))
-        self.stop_words.add('dont')
         self.translator = str.maketrans('', '', string.punctuation)
         self.stop_words = set(stopwords.words('english'))
+        self.stop_words.add('dont')
         self.stop_words.add('’')
         self.stop_words.add('\u200d')
         self.stemmer = PorterStemmer()
         self.lemmatizer = WordNetLemmatizer()
-        if 'lemmatize' or 'stem' in procedure:
-            self.wordnet = nltk.download('wordnet')
+        nltk.download('punkt')
+        nltk.download('vader_lexicon')
         
     def lower(self):
         return self.text.lower()

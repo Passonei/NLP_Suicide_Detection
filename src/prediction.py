@@ -8,7 +8,7 @@ if __name__ == '__main__':
     model_path = config['models']['pipeline']
     model = pickle.load(open(model_path, 'rb'))
 
-    y = model.predict([text,text])
+    y = model.predict([text])
     proba = model.predict_proba([text])
     print("\n" + "-"*25 + " PREDICTION " + "-"*25)
     print(f'Prediction: {y[0]}, Probability {(proba[0][y[0]]*100).round(2)}%')
