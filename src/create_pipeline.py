@@ -1,5 +1,4 @@
-from sklearn.pipeline import Pipeline, FeatureUnion
-from sklearn.preprocessing import FunctionTransformer
+from sklearn.pipeline import Pipeline
 from feature_connector import FeatureConnector
 from preprocessing import Preprocessor
 import json
